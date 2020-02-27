@@ -51,11 +51,11 @@ div.mine, div.mine:hover {
 }
 
 div.hidden {
-  background: #eee;
+  background: bisque;
 }
 
 div.hidden:hover {
-  background: #ccc;
+  background: rgb(230, 199, 162);
 }
 
 div.marked, div.marked:hover {
