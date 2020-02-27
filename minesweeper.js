@@ -4,16 +4,20 @@ document.addEventListener('DOMContentLoaded', startGame)
 // Board object generation 3x3
 let size = 3
 let board = {cells: []}
-for (i=0; i<size; i++) {
-  for(q=0; q<size; q++) {
-    board.cells.push({
-      row: i,
-      col: q,
-      isMine: Math.random() < 0.5, 
-      hidden: true
-    })
+function generateBoard() {
+  for (i=0; i<size; i++) {
+    for(q=0; q<size; q++) {
+      board.cells.push({
+        row: i,
+        col: q,
+        isMine: Math.random() < 0.5, 
+        hidden: true
+      })
+    }
   }
 }
+
+generateBoard()
 
 function startGame () {
   for (i in board.cells) {
