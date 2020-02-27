@@ -75,16 +75,13 @@ function startGame () {
 function checkForWin () {
   console.log(board.cells)
   for (i in board.cells) {
-    if (board.cells[i].isMine === true && board.cells[i].isMarked === false) {
+    if (board.cells[i].isMine === true && !board.cells[i].isMarked) {
       return
     } else if (board.cells[i].isMine === false && board.cells[i].hidden === true) {
       return
     }
   }
   lib.displayMessage('You win!')
-  // You can use this function call to declare a winner (once you've
-  // detected that they've won, that is!)
-  //   lib.displayMessage('You win!')
 }
 
 // Define this function to count the number of mines around the cell
