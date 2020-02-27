@@ -1,61 +1,18 @@
 document.addEventListener('DOMContentLoaded', startGame)
 
-// Define your `board` object here!
-var board = {
-  cells: [{
-    row: 0,
-    col: 0,
-    isMine: true,
-    hidden: true
-  },
-          {
-    row: 0,
-    col: 1,
-    isMine: false,
-    hidden: true
-  },
-          {
-    row: 0,
-    col: 2,
-    isMine: true,
-    hidden: true
-  },
-          {
-    row: 1,
-    col: 0,
-    isMine: true,
-    hidden: true
-  },
-          {
-    row: 1,
-    col: 1,
-    isMine: false,
-    hidden: true
-  },
-          {
-    row: 1,
-    col: 2,
-    isMine: true,
-    hidden: true
-  },
-          {
-    row: 2,
-    col: 0,
-    isMine: true,
-    hidden: true
-  },
-          {
-    row: 2,
-    col: 1,
-    isMine: true,
-    hidden: true
-  },
-          {
-    row: 2,
-    col: 2,
-    isMine: true,
-    hidden: true
-  }]
+
+// Board object generation 3x3
+let size = 3
+let board = {cells: []}
+for (i=0; i<size; i++) {
+  for(q=0; q<size; q++) {
+    board.cells.push({
+      row: i,
+      col: q,
+      isMine: Math.random() < 0.5, 
+      hidden: true
+    })
+  }
 }
 
 function startGame () {
