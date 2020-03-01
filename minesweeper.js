@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', startGame)
 
 // Board object generation 3x3
 let size = 3
+let mineProbability = 0.5
 let board = {cells: []}
 generateBoard()
 function generateBoard() {
@@ -11,7 +12,7 @@ function generateBoard() {
       board.cells.push({
         row: i,
         col: q,
-        isMine: Math.random() < 0.5, 
+        isMine: Math.random() < mineProbability, 
         hidden: true
       })
     }
@@ -37,19 +38,7 @@ function startGame () {
   for (i in board.cells) {
     board.cells[i].surroundingMines = countSurroundingMines(board.cells[i])
   }
-  document.addEventListener('click', checkForWin)
-  document.addEventListener('contextmenu', checkForWin)
-  document.getElementById('reset').addEventListener('click', resetBoard)
-  let sizes = document.querySelectorAll('button')
-  console.log(sizes)
-  for (q=0; q<sizes.length; q++) {
-    console.log(sizes[q])
-    sizes[q].addEventListener('click', () => {
-      size = event.target.value
-      console.log(size)
-      resetBoard()
-    })
-  }
+  assignEvents()
   // Don't remove this function call: it makes the game work!
   lib.initBoard()
 }
@@ -86,4 +75,20 @@ function countSurroundingMines (cell) {
     }
   }
   return count
+}
+
+function assignEvents() {
+  document.addEventListener('click', checkForWin)
+  document.addEventListener('contextmenu', checkForWin)
+  document.getElementById('reset').addEventListener('click', resetBoard)
+  let sizes = document.querySelectorAll('button')
+  console.log(sizes)
+  for (q=0; q<sizes.length; q++) {
+    console.log(sizes[q])
+    sizes[q].addEventListener('click', () => {
+      size = event.target.value
+      console.log(size)
+      resetBoard()
+    })
+  }
 }
