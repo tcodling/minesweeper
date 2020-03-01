@@ -107,14 +107,18 @@ function pickSize(event) {
   let sizes = document.querySelectorAll('.size')
   for (q=0; q<sizes.length; q++) {
     sizes[q].style.backgroundColor = 'bisque'
+    sizes[q].style.color = 'black'
   }
-  event.target.style.backgroundColor = 'red'
+  event.target.style.backgroundColor = 'brown'
+  event.target.style.color = 'bisque'
 }
 
 function pickProbability(event) {
   let probabilities = document.querySelectorAll('.probability')
   for (q=0; q<probabilities.length; q++) {
     probabilities[q].style.backgroundColor = 'bisque'
+    probabilities[q].style.color = 'black'
   }
-  event.target.style.backgroundColor = 'red'
+  event.target.style.backgroundColor = 'brown'
+  event.target.style.color = 'bisque'
 }
