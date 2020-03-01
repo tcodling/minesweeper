@@ -20,11 +20,14 @@ function generateBoard() {
 
 // Reset the board function
 function resetBoard() {
+  // Remove existing board
   let gameBoard = document.querySelector('.board')
   gameBoard.parentNode.removeChild(gameBoard)
+  // Add new board div
   let newBoard = document.createElement('div')
   document.body.appendChild(newBoard)
   newBoard.classList.add('board')
+  // Run the initial game setup again
   board = {cells: []}
   generateBoard()
   startGame()
