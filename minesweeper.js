@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', startGame)
 // Board object generation 3x3
 let size = 3
 let board = {cells: []}
+generateBoard()
 function generateBoard() {
   for (i=0; i<size; i++) {
     for(q=0; q<size; q++) {
@@ -17,7 +18,18 @@ function generateBoard() {
   }
 }
 
-generateBoard()
+// Reset the board function
+function resetBoard() {
+  let gameBoard = document.querySelector('.board')
+  gameBoard.parentNode.removeChild(gameBoard)
+  let newBoard = document.createElement('div')
+  document.body.appendChild(newBoard)
+  newBoard.classList.add('board')
+  board = {cells: []}
+  generateBoard()
+  startGame()
+}
+
 
 function startGame () {
   for (i in board.cells) {
@@ -25,6 +37,7 @@ function startGame () {
   }
   document.addEventListener('click', checkForWin)
   document.addEventListener('contextmenu', checkForWin)
+  document.getElementById('reset').addEventListener('click', resetBoard)
   // Don't remove this function call: it makes the game work!
   lib.initBoard()
 }
@@ -34,7 +47,6 @@ function startGame () {
 // 1. Are all of the cells that are NOT mines visible?
 // 2. Are all of the mines marked?
 function checkForWin () {
-  console.log(board.cells)
   for (i in board.cells) {
     if (board.cells[i].isMine === true && !board.cells[i].isMarked) {
       return
