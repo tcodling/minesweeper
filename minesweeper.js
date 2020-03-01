@@ -90,6 +90,7 @@ function assignEvents() {
       size = event.target.value
       resetBoard()
     })
+    sizes[q].addEventListener('click', pickSize)
   }
   // Add the events that change mine probability level when picked
   let probability = document.querySelectorAll('.probability')
@@ -98,5 +99,22 @@ function assignEvents() {
       mineProbability = event.target.value
       resetBoard()
     })
+    probability[q].addEventListener('click', pickProbability)
   }
+}
+
+function pickSize(event) {
+  let sizes = document.querySelectorAll('.size')
+  for (q=0; q<sizes.length; q++) {
+    sizes[q].style.backgroundColor = 'bisque'
+  }
+  event.target.style.backgroundColor = 'red'
+}
+
+function pickProbability(event) {
+  let probabilities = document.querySelectorAll('.probability')
+  for (q=0; q<probabilities.length; q++) {
+    probabilities[q].style.backgroundColor = 'bisque'
+  }
+  event.target.style.backgroundColor = 'red'
 }
