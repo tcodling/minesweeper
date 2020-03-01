@@ -23,6 +23,10 @@ body {
   font-size: 1.5rem;
 }
 
+#message p {
+  margin: 10px;
+}
+
 .board {
   display: flex;
   flex-wrap: wrap;
@@ -60,4 +64,20 @@ div.hidden:hover {
 
 div.marked, div.marked:hover {
   background: no-repeat center/60% url("images/mark.svg") deepskyblue;
+}
+
+button,  {
+  display: inline-block;
+  padding: 5px;
+  margin: 2px;
+}
+
+button:hover {
+  cursor: pointer
+}
+
+.borderBackground {
+  border: 2px brown solid;
+  border-radius: 10px;
+  background-color: bisque;
 }
