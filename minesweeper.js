@@ -78,16 +78,24 @@ function countSurroundingMines (cell) {
 }
 
 function assignEvents() {
+  // Left and right click events
   document.addEventListener('click', checkForWin)
   document.addEventListener('contextmenu', checkForWin)
+  // Set the resetBoard event
   document.getElementById('reset').addEventListener('click', resetBoard)
-  let sizes = document.querySelectorAll('button')
-  console.log(sizes)
+  // Add the events that change the size variable when a new size is picked
+  let sizes = document.querySelectorAll('.size')
   for (q=0; q<sizes.length; q++) {
-    console.log(sizes[q])
     sizes[q].addEventListener('click', () => {
       size = event.target.value
-      console.log(size)
+      resetBoard()
+    })
+  }
+  // Add the events that change mine probability level when picked
+  let probability = document.querySelectorAll('.probability')
+  for (q=0; q<probability.length; q++) {
+    probability[q].addEventListener('click', () => {
+      mineProbability = event.target.value
       resetBoard()
     })
   }
