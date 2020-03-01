@@ -33,7 +33,6 @@ function resetBoard() {
   startGame()
 }
 
-
 function startGame () {
   for (i in board.cells) {
     board.cells[i].surroundingMines = countSurroundingMines(board.cells[i])
@@ -41,6 +40,16 @@ function startGame () {
   document.addEventListener('click', checkForWin)
   document.addEventListener('contextmenu', checkForWin)
   document.getElementById('reset').addEventListener('click', resetBoard)
+  let sizes = document.querySelectorAll('button')
+  console.log(sizes)
+  for (q=0; q<sizes.length; q++) {
+    console.log(sizes[q])
+    sizes[q].addEventListener('click', () => {
+      size = event.target.value
+      console.log(size)
+      resetBoard()
+    })
+  }
   // Don't remove this function call: it makes the game work!
   lib.initBoard()
 }
@@ -78,4 +87,3 @@ function countSurroundingMines (cell) {
   }
   return count
 }
-
