@@ -2,8 +2,8 @@ document.addEventListener('DOMContentLoaded', startGame)
 
 
 // Board object generation 3x3
-let size = 3
-let mineProbability = 0.5
+let size = 4
+let mineProbability = 0.4
 let board = {cells: []}
 generateBoard()
 function generateBoard() {
